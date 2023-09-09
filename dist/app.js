@@ -14,19 +14,20 @@ const io = new socket_io_1.Server(server, {
 });
 const users = {};
 // Set up EJS
-app.set('view engine', 'ejs');
-app.set('views', path_1.default.join(__dirname, '../client/chat'));
+// app.set('view engine', 'ejs');
+app.set('views', path_1.default.join(__dirname, '../client/chat/dist'));
+app.use(express_1.default.static(path_1.default.join(__dirname, '../client/chat/dist')));
 // Express routes
 app.get('/', (req, res) => {
-    res.sendFile(path_1.default.join(__dirname, '../client', 'index.html'));
+    res.sendFile(path_1.default.join(__dirname, '../client/chat/dist', 'index.html'));
 });
-app.get('/login', (req, res) => {
-    res.sendFile(path_1.default.join(__dirname, '../client', 'login.html'));
-});
-app.get('/chat', (req, res) => {
-    console.log('req.query', req.query);
-    res.render('index', { user: req.query });
-});
+// app.get('/login', (req, res) => {
+//     res.sendFile(path.join(__dirname, '../client', 'login.html'));
+// });
+// app.get('/chat', (req, res) => {
+//     console.log('req.query', req.query);
+//     res.render('index', { user: req.query });
+// })
 io.on('connection', (socket) => {
     // console.log('a user connected');
     // users[socket.id] = socket.id;

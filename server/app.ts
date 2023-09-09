@@ -14,8 +14,9 @@ const users: { [userId: string]: string } = {
 }
 
 // Set up EJS
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, '../client/chat'));
+// app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, '../client/chat/dist'));
+app.use(express.static(path.join(__dirname, '../client/chat/dist')));
 
 // Express routes
 app.get('/', (req, res) => {
