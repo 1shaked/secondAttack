@@ -6,7 +6,9 @@ import { DefaultEventsMap } from 'socket.io/dist/typed-events';
 export const userNameAtom = atom('');
 export const isLoginAtom = atom(false);
 export const idAtom = atom('');
-export const socketAtom = atom<Socket<DefaultEventsMap, DefaultEventsMap>>(io('http://localhost:8080'));
+const wsUri = window.location.protocol === 'https:' ? 'wss://' + window.location.host : 'ws://' + window.location.host;
+
+export const socketAtom = atom<Socket<DefaultEventsMap, DefaultEventsMap>>(io(wsUri));
 export const usersAtom = atom<{[key: string]: string}>({});
 export const selectedUsersAtom = atom<string>('');
 
