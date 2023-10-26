@@ -11,7 +11,7 @@
   "dependencies": {
     "@types/crypto-js": "^4.1.2",
     "@types/socket.io-client": "^3.0.0",
-    "crypto-js": "^4.1.1",
+    "crypto-js": "^4.2.0",
     "jotai": "^2.4.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
